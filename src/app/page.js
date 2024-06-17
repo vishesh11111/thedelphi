@@ -9,6 +9,7 @@ import Event from "./components/Landing/Event";
 import BlackContainer from "./styles/custom-container/BlackContainer";
 import OurLocation from "./components/Landing/OurLocation";
 import Experience_Seeker from "./components/Landing/Experience_Seeker";
+import Footer from "./components/footer/Footer";
 
 const slides = [
   {
@@ -45,6 +46,9 @@ export default function Home() {
         <Experience_Seeker/>
       </Container>
       <OurLocation/>
+      <BlackContainer>
+        <Footer/>
+      </BlackContainer>
     </main>
   );
 }

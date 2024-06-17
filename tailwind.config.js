@@ -13,6 +13,7 @@ module.exports = {
       },
       animation: {
         // You can name the animation whatever you want
+        'slide-bg': 'bgSlide 1s ease-in-out infinite',
         "spin-slow": "spin 10s linear infinite",
         "fade-up-once": "fadeUpOnce 500ms ease-in-out forwards",
         "fade-down-once": "fadeDownOnce 500ms ease-in-out forwards",
@@ -37,6 +38,10 @@ module.exports = {
         "2s": "1s",
       },
       keyframes: {
+        bgSlide: {
+          '0%': { backgroundPosition: 'left' },
+          '100%': { backgroundPosition: 'right' },
+        },
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
