@@ -60,7 +60,9 @@ const Footer = () => {
             <div></div>
           </div>
           <div className="w-full">
-            <p className="text-center my-7 italic text-[30px] ">Stay in The Know</p>
+            <p className="text-center my-7 italic text-[30px] ">
+              Stay in The Know
+            </p>
             <div className="w-full flex justify-between h-12">
               <div className="w-[30%] h-full border-white border"></div>
               <div className="w-[30%] h-full border-white border"></div>

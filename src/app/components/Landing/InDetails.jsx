@@ -50,7 +50,7 @@ const InDetails = () => {
     <>
       <div className="in-details">
         <motion.div
-          className="inset-0 border border-r-1 border-black"
+          className=" inset-0 border border-r-1 border-black"
           initial={isVisibleSection && { clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" }}
           animate={isVisibleSection && { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
           transition={isVisibleSection && { duration: 1.5, ease: "easeInOut" }}
@@ -95,7 +95,7 @@ const InDetails = () => {
                 </Swiper>
               </div>
             </div>
-            <div className="absolute w-full h-full bg-transparent flex justify-center items-center">
+            <div className="absolute w-full h-full opacity-35 flex justify-center items-center">
               <div className={`w-full sm:w-[70%] lg:w-[61%] xl:w-[39%] `}>
                 <div
                   className={` ${
@@ -106,9 +106,9 @@ const InDetails = () => {
                 >
                   {" "}
                 </div>
-                <div className="w-full h-auto flex flex-col items-center">
+                <div className="w-full  h-auto flex flex-col items-center">
                   <div className=" flex justify-center w-full h-full">
-                    <div className="h-full w-full ">
+                    <div className="h-full mt-12 lg:mt-0 w-full ">
                       <Image
                         src="/randallroundtext.svg"
                         alt="img"
