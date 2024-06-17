@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import SectionTracker from "@/app/styles/custom-container/SectionTracker";
+import { motion } from "framer-motion";
+
 const HotelRoom = () => {
   const [isVisibleSection, setIsVisibleSection] = useState(false);
 
@@ -13,7 +15,13 @@ const HotelRoom = () => {
   return (
     <div className="bg-black py-10">
       <div className="relative w-full flex flex-col lg:flex-row bg-gray-200 min-h-screen">
-        <div className="w-full">
+        <motion.div
+          // className="w-full"
+          initial={{ width: 0 }}
+          animate={isVisibleSection && { width: "100%" }}
+          whileHover={isVisibleSection && { width: "100%" }}
+          transition={isVisibleSection && { duration: 1.5, ease: "easeOut" }}
+        >
           <Image
             src="https://symphony.cdn.tambourine.com/the-delphi-downtown-la-full/media/delphi-homepage-rooms-64be951902ebd.jpg"
             alt="Room"
@@ -22,7 +30,8 @@ const HotelRoom = () => {
             height={100}
             className="object-cover w-full h-full min-h-screen"
           />
-        </div>
+        </motion.div>
+
         <SectionTracker
           sectionId="section_05"
           onInViewChange={handleInViewChange}

@@ -20,6 +20,7 @@ module.exports = {
         "fade-down": "fadeDown 800ms ease-in-out forwards",
         "fade-up": "fadeUp 800ms ease-in-out forwards",
         "fade-up4s": "fadeUp 4s ease-in-out forwards",
+        "fade-down4s": "fadeDown 4s ease-in-out forwards",
         "fade-left": "fadeLeft 4s linear forwards",
         "fade-right": "fadeRight 1s linear forwards",
         "fade-in": "fadeIn 300ms",

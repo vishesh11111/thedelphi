@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-
+import SectionTracker from "@/app/styles/custom-container/SectionTracker";
+import { motion } from "framer-motion";
 const OurLocation = () => {
+  const [isVisibleSection, setIsVisibleSection] = useState(false);
+
+  const handleInViewChange = (sectionId, inView) => {
+    if (sectionId === "section_08") {
+      setIsVisibleSection(inView);
+    }
+  };
   return (
     <div className="">
       <div className="mb-5">
+        <SectionTracker
+          sectionId="section_08"
+          onInViewChange={handleInViewChange}
+        />
         <div className=" bg-red-500 h-[110vh] w-full absolute">
           <Image
             src="https://symphony.cdn.tambourine.com/the-delphi-downtown-la-full/media/delphi-homepage-map-64be9613eb4a4.jpg"
@@ -70,7 +82,7 @@ const OurLocation = () => {
                     unoptimized
                     width={100}
                     height={100}
-                    className="w-full animate-fade-up4s h-full object-cover transition duration-500 ease-in-out transform hover:scale-105"
+                    className={`w-full ${isVisibleSection && "animate-fade-up4s"} h-full object-cover transition duration-500 ease-in-out transform hover:scale-105`}
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-50  z-[999] transition-opacity duration-500 ease-in-out opacity-0 hover:opacity-100 flex items-center justify-center text-white text-2xl">
                     Hovered State
@@ -84,7 +96,7 @@ const OurLocation = () => {
                       unoptimized
                       width={100}
                       height={100}
-                      className="w-full h-full animate-fade-up4s object-cover transition duration-500 ease-in-out transform hover:scale-105"
+                      className={`w-full h-full ${isVisibleSection && "animate-fade-up4s"} object-cover transition duration-500 ease-in-out transform hover:scale-105`}
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-50  z-[999] transition-opacity duration-500 ease-in-out opacity-0 hover:opacity-100 flex items-center justify-center text-white text-2xl">
                       Hovered State
@@ -100,7 +112,7 @@ const OurLocation = () => {
                     alt=""
                     width={100}
                     height={100}
-                    className="w-full h-full animate-fade-up4s object-cover transition duration-500 ease-in-out transform hover:scale-105"
+                    className={`w-full h-full ${isVisibleSection && "animate-fade-up4s" } object-cover transition duration-500 ease-in-out transform hover:scale-105`}
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-50  z-[999] transition-opacity duration-500 ease-in-out opacity-0 hover:opacity-100 flex items-center justify-center text-white text-2xl">
                     Hovered State
@@ -117,7 +129,7 @@ const OurLocation = () => {
                     unoptimized
                     width={100}
                     height={100}
-                    className="w-full h-full animate-fade-up4s object-cover transition duration-500 ease-in-out transform hover:scale-105"
+                    className={`w-full h-full ${isVisibleSection && "animate-fade-up4s"} object-cover transition duration-500 ease-in-out transform hover:scale-105`}
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-50  z-[999] transition-opacity duration-500 ease-in-out opacity-0 hover:opacity-100 flex items-center justify-center text-white text-2xl">
                     Hovered State
@@ -131,7 +143,7 @@ const OurLocation = () => {
                       alt=""
                       width={100}
                       height={100}
-                      className="w-full h-full animate-fade-up4s object-cover transition duration-500 ease-in-out transform hover:scale-105"
+                      className={`w-full h-full ${isVisibleSection && "animate-fade-up4s"} object-cover transition duration-500 ease-in-out transform hover:scale-105`}
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-50  z-[999] transition-opacity duration-500 ease-in-out opacity-0 hover:opacity-100 flex items-center justify-center text-white text-2xl">
                       Hovered State
@@ -146,7 +158,7 @@ const OurLocation = () => {
                       alt=""
                       width={100}
                       height={100}
-                      className="w-full h-full animate-fade-up4s object-cover transition duration-500 ease-in-out transform hover:scale-105"
+                      className={`w-full h-full ${isVisibleSection && "animate-fade-up4s"} object-cover transition duration-500 ease-in-out transform hover:scale-105`}
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-50  z-[999] transition-opacity duration-500 ease-in-out opacity-0 hover:opacity-100 flex items-center justify-center text-white text-2xl">
                       Hovered State
@@ -155,7 +167,7 @@ const OurLocation = () => {
                 </div>
               </div>
             </div>
-            <div className="absolute bg-transparent h-full w-[500px] sm:w-full animate-fade-up4s">
+            <div className={`absolute bg-transparent h-full w-[500px] sm:w-full ${isVisibleSection && "animate-fade-up4s"}`}>
               <div className="flex flex-col items-end sm:items-center h-full">
                 <div className="text-[45px] lg:text-[80px] font-serif text-gray-800 text-center">
                   <span className="block">SCENES</span>

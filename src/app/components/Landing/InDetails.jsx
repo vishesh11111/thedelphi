@@ -51,8 +51,16 @@ const InDetails = () => {
       <div className="in-details">
         <motion.div
           className=" inset-0 border border-r-1 border-black"
-          initial={isVisibleSection && { clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" }}
-          animate={isVisibleSection && { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
+          initial={
+            isVisibleSection && {
+              clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)",
+            }
+          }
+          animate={
+            isVisibleSection && {
+              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+            }
+          }
           transition={isVisibleSection && { duration: 1.5, ease: "easeInOut" }}
         >
           <div className="relative flex flex-col lg:h-[640px] gap-12 xl:gap-0 lg:flex-row justify-between  ">
@@ -89,7 +97,11 @@ const InDetails = () => {
                       key={index}
                       className={`w-full flex justify-center items-center `}
                     >
-                      <InDetailsCard item={item} index={index} isView={isVisibleSection}/>
+                      <InDetailsCard
+                        item={item}
+                        index={index}
+                        isView={isVisibleSection}
+                      />
                     </SwiperSlide>
                   ))}
                 </Swiper>

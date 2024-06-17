@@ -21,23 +21,38 @@ const DiningSection = () => {
       <div className="relative z-10  mx-auto ">
         <div className="flex flex-wrap items-center justify-between">
           <div className="w-full lg:w-[100%] flex justify-center lg:justify-center z-[999] ">
-            <div className="relative w-[560px] h-[560px] ">
+            <div className="relative w-[560px] h-[560px]  ">
               <motion.div
-                className="h-full w-full"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
+              className="border-[40px] border-black rounded-full "
+                initial={
+                  isVisibleSection && {
+                    clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+                  }
+                }
+                animate={
+                  isVisibleSection && {
+                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+                  }
+                }
                 transition={
                   isVisibleSection && { duration: 1.5, ease: "easeInOut" }
                 }
               >
-                <Image
-                  src="https://symphony.cdn.tambourine.com/the-delphi-downtown-la-full/media/thedelphidowntownla-homepage-dining-image-03-650e00b0beeed.png"
-                  alt="Dining"
-                  width={100}
-                  unoptimized
-                  height={100}
-                  className="w-full h-full object-cover"
-                />
+                <motion.div
+                  className="h-full w-full"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 1.5, ease: "easeInOut" }}
+                >
+                  <Image
+                    src="https://symphony.cdn.tambourine.com/the-delphi-downtown-la-full/media/thedelphidowntownla-homepage-dining-image-03-650e00b0beeed.png"
+                    alt="Dining"
+                    width={100}
+                    unoptimized
+                    height={100}
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
               </motion.div>
               <div className="absolute inset-0 font-serif flex items-center justify-center text-[170px] lg:text-[300px] font-bold italic text-white opacity-80 ">
                 <figcaption
@@ -164,7 +179,7 @@ const DiningSection = () => {
           </div>
         </div>
       </div>
-      <div className="w-full top-[50%] h-[60%] absolute bg-white z-0"></div>
+      <div className="w-full top-[50%] h-[50%] absolute bg-white z-0"></div>
     </div>
   );
 };

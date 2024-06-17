@@ -9,6 +9,8 @@ import {
   Navigation,
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { motion } from "framer-motion";
+import SectionTracker from "@/app/styles/custom-container/SectionTracker";
 
 const data = [
   {
@@ -30,10 +32,34 @@ const data = [
 
 const Experience_Seeker = () => {
   const [swiperInstance, setSwiperInstance] = useState(null);
-  const [isVisibleSection, setisVisibleSection] = useState(false);
+  const [isVisibleSection, setIsVisibleSection] = useState(false);
+
+  
+  const handleInViewChange = (sectionId, inView) => {
+    if (sectionId === "section_06") {
+      setIsVisibleSection(inView);
+    }
+  };
 
   return (
-    <div className="border-[2px] border-black">
+    <motion.div
+      className="border-[2px] border-black"
+      initial={
+        isVisibleSection && {
+          clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+        }
+      }
+      animate={
+        isVisibleSection && {
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+        }
+      }
+      transition={isVisibleSection && { duration: 1.5, ease: "easeInOut" }}
+    >
+       <SectionTracker
+            sectionId="section_06"
+            onInViewChange={handleInViewChange}
+          />
       <div className="w-[90%] lg:w-[70%] m-auto py-10 lg:py-24">
         <Swiper
           onSwiper={setSwiperInstance}
@@ -75,7 +101,7 @@ const Experience_Seeker = () => {
           →
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
