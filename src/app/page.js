@@ -3,11 +3,12 @@ import Container from "./styles/custom-container/Container";
 import Slider from "./components/Landing/Slider";
 import Header from "./components/header/Header";
 import Availability from "./components/Landing/Availability";
-import DiningSection from "./components/Landing/cards/DiningSection";
+import DiningSection from "./components/Landing/DiningSection";
 import HotelRoom from "./components/Landing/HotelRoom";
 import Event from "./components/Landing/Event";
 import BlackContainer from "./styles/custom-container/BlackContainer";
 import OurLocation from "./components/Landing/OurLocation";
+import Experience_Seeker from "./components/Landing/Experience_Seeker";
 
 const slides = [
   {
@@ -41,6 +42,7 @@ export default function Home() {
       </BlackContainer>
       <Container>
         <Event />
+        <Experience_Seeker/>
       </Container>
       <OurLocation/>
     </main>

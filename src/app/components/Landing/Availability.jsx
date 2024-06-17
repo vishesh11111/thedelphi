@@ -1,11 +1,10 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import InDetails from "./InDetails";
-import { motion } from "framer-motion";
+import { motion} from "framer-motion";
 import SectionTracker from "@/app/styles/custom-container/SectionTracker";
 
 const Availability = () => {
-  const [isInView, setIsInView] = useState(false);
   const [isSection01InView, setIsSection01InView] = useState(false);
 
   const handleInViewChange = (sectionId, inView) => {
@@ -14,15 +13,22 @@ const Availability = () => {
     }
   };
 
-
   return (
     <>
       <div className="w-full h-full rounded-sm font-lora">
         <motion.div
           className="inset-0 border border-r-1 border-black hidden sm:flex"
-          initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" }}
-          animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
+          initial={
+            isSection01InView && {
+              clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+            }
+          }
+          animate={
+            isSection01InView && {
+              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+            }
+          }
+          transition={isSection01InView && { duration: 1.5, ease: "easeInOut" }}
         >
           <SectionTracker
             sectionId="section_01"
@@ -30,24 +36,54 @@ const Availability = () => {
           />
           <motion.div
             className="inset-0 border border-r-1 border-black w-[20%] flex justify-center items-center p-5"
-            initial={{ clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" }}
-            animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
+            initial={
+              isSection01InView && {
+                clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+              }
+            }
+            animate={
+              isSection01InView && {
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+              }
+            }
+            transition={
+              isSection01InView && { duration: 1.5, ease: "easeInOut" }
+            }
           >
             CHECK IN
           </motion.div>
           <motion.div
-            initial={{ clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" }}
-            animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
+            initial={
+              isSection01InView && {
+                clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+              }
+            }
+            animate={
+              isSection01InView && {
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+              }
+            }
+            transition={
+              isSection01InView && { duration: 1.5, ease: "easeInOut" }
+            }
             className="inset-0 border border-r-1 border-black w-[20%] flex justify-center items-center p-5"
           >
             CHECK OUT
           </motion.div>
           <motion.div
-            initial={{ clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" }}
-            animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
+            initial={
+              isSection01InView && {
+                clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+              }
+            }
+            animate={
+              isSection01InView && {
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+              }
+            }
+            transition={
+              isSection01InView && { duration: 1.5, ease: "easeInOut" }
+            }
             className="inset-0 border border-r-1 border-black text-[15px] w-[20%] flex justify-center items-center p-5"
           >
             ROOMS
@@ -59,9 +95,19 @@ const Availability = () => {
             </select>
           </motion.div>
           <motion.div
-            initial={{ clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" }}
-            animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
+            initial={
+              isSection01InView && {
+                clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+              }
+            }
+            animate={
+              isSection01InView && {
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+              }
+            }
+            transition={
+              isSection01InView && { duration: 1.5, ease: "easeInOut" }
+            }
             className="inset-0 border border-r-1 border-black text-[15px] w-[20%] flex justify-center items-center p-5"
           >
             GUESTS
@@ -74,33 +120,49 @@ const Availability = () => {
           </motion.div>
           <motion.div
             className="border border-r-1 border-black w-[40%] rounded-sm text-[20px] flex justify-center items-center bg-black text-white p-5"
-            initial={{ width: 0 }}
-            animate={{ width: "100%" }}
-            transition={{ duration: 1.5, delay: 0.5 }} // Adjust duration and delay as needed
+            initial={isSection01InView && { width: 0 }}
+            animate={isSection01InView && { width: "100%" }}
+            transition={isSection01InView && { duration: 1.5, delay: 0.5 }} // Adjust duration and delay as needed
           >
             Check Availability
           </motion.div>
         </motion.div>
         <motion.div
-          initial={{ clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" }}
-          animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
+          initial={
+            isSection01InView && {
+              clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+            }
+          }
+          animate={
+            isSection01InView && {
+              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+            }
+          }
+          transition={isSection01InView && { duration: 1.5, ease: "easeInOut" }}
           id="section_01"
           className="w-full  inset-0 border border-r-1 border-black flex flex-col-reverse lg:flex-row "
         >
           <motion.div
-            initial={{ clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" }}
-            animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            className={`  inset-0 border border-r-1 border-black w-[100%] lg:w-[50%] p-0 sm:p-8 flex justify-center ${
-              isInView ? "" : ""
-            }`}
+            initial={
+              isSection01InView && {
+                clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+              }
+            }
+            animate={
+              isSection01InView && {
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+              }
+            }
+            transition={
+              isSection01InView && { duration: 1.5, ease: "easeInOut" }
+            }
+            className={`  inset-0 border border-r-1 border-black w-[100%] lg:w-[50%] p-0 sm:p-8 flex justify-center `}
           >
-            <div className="w-full h-full animate-fade-up4s ">
-              <span className="text-[60px] m-0 lg:block mr-10">THE</span>
-              <span className="text-[60px] m-0 lg:block mr-10">DELPHI</span>
-              <span className="text-[60px] m-0 lg:block">LOS</span>
-              <span className="text-[60px] m-0 block">ANGELES</span>
+            <div className="w-full h-full animate-fade-up4s  font-serif">
+              <span className="text-[60px] m-0 lg:block mr-10 font-serif">THE</span>
+              <span className="text-[60px] m-0 lg:block mr-10 font-serif">DELPHI</span>
+              <span className="text-[60px] m-0 lg:block font-serif">LOS</span>
+              <span className="text-[60px] m-0 block font-serif">ANGELES</span>
               <div className="text-[18px] mt-5">
                 In Ancient Greece, Delphi was considered the center of the
                 world. A few thousand years later, that essence now resides at
@@ -113,9 +175,9 @@ const Availability = () => {
             </div>
           </motion.div>
           <motion.div
-            initial={{ clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" }}
-            animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
+            initial={isSection01InView && { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" }}
+            animate={isSection01InView && { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
+            transition={isSection01InView && { duration: 1.5, ease: "easeInOut" }}
             className=" inset-0 border border-r-1 border-black  p-0 sm:p-8 w-[100%] lg:w-[50%] "
           >
             <div className="w-full h-full overflow-hidden relative">

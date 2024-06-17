@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { motion } from "framer-motion";
+import SectionTracker from "@/app/styles/custom-container/SectionTracker";
 
 // Import Swiper styles
 import "swiper/css";
@@ -36,37 +37,27 @@ const data = [
 ];
 
 const InDetails = () => {
-  const [hoveredItem, setHoveredItem] = useState(null);
   const [swiperInstance, setSwiperInstance] = useState(null);
-  const [isVisibleSection, setIsVisibleSection] = useState(false);
+  const [isVisibleSection, setisVisibleSection] = useState(false);
 
-  useEffect(() => {
-    const Animatenow = () => {
-      const section = document.getElementById("in-details");
-      if (section) {
-        const sectionTop = section.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        if (sectionTop < windowHeight * 0.7) {
-          setIsVisibleSection(true);
-        }
-      }
-    };
-
-    Animatenow();
-  }, []);
+  const handleInViewChange = (sectionId, inView) => {
+    if (sectionId === "section_02") {
+      setisVisibleSection(inView);
+    }
+  };
 
   return (
     <>
       <div className="in-details">
         <motion.div
           className="inset-0 border border-r-1 border-black"
-          initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" }}
-          animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
+          initial={isVisibleSection && { clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" }}
+          animate={isVisibleSection && { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
+          transition={isVisibleSection && { duration: 1.5, ease: "easeInOut" }}
         >
           <div className="relative flex flex-col lg:h-[640px] gap-12 xl:gap-0 lg:flex-row justify-between  ">
             <div className="w-[100%] lg:w-[19%]  xl:w-[29%] flex justify-center items-center ">
-              <div className="animate-fade-up4s">
+              <div className={`${isVisibleSection && "animate-fade-up4s"}`}>
                 <span className="text-[60px] m-0 font-serif block">THE</span>
                 <span className="text-[60px] m-0 font-serif block">DELPHI</span>
                 <span className="text-[20px] m-0 ml-[170px] block">
@@ -74,7 +65,10 @@ const InDetails = () => {
                 </span>
               </div>
             </div>
-
+            <SectionTracker
+              sectionId="section_02"
+              onInViewChange={handleInViewChange}
+            />
             <div className="w-[100%] lg:w-[74%] xl:w-[66%]  flex flex-col justify-center">
               <div className="w-full  flex justify-center">
                 <Swiper
@@ -95,7 +89,7 @@ const InDetails = () => {
                       key={index}
                       className={`w-full flex justify-center items-center `}
                     >
-                      <InDetailsCard item={item} index={index} />
+                      <InDetailsCard item={item} index={index} isView={isVisibleSection}/>
                     </SwiperSlide>
                   ))}
                 </Swiper>

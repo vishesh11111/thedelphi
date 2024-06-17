@@ -56,13 +56,13 @@ const Slider = ({ slides }) => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="absolute inset-0 top-[70%] left-0 flex  items-start justify-center z-[999] font-serif">
+        <div className="absolute inset-0 top-[70%] left-[5%] flex  items-start  z-[999] font-serif">
           <div className="py-2">
-            <span className="text-[35px]  text-white uppercase tracking-wider ml-10 m-0">
+            <span className="text-[25px] lg:text-[35px]  text-white uppercase tracking-wider ml-10 m-0">
               The New{" "}
             </span>
             <br />
-            <span className="text-[60px] text-white uppercase tracking-wider m-0">
+            <span className="text-[50px] lg:text-[60px] text-white uppercase tracking-wider m-0">
               Center of L.A. Culture
             </span>
           </div>
